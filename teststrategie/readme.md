@@ -50,3 +50,10 @@ Klassen mit eher weniger Abhängigkeiten:
 | printAccountsList |                    |
 | deleteAccount     |                    |
 | createAccount     |                    |
+
+
+Codeanalyse
+
+Main klasse ist zu gross. man könnte Code in andere Functionen auslagern.   
+Klassen sind zu gross. Könnte man kleiner machen.  
+Nicht einfach //TO DO oder andere Dinge in den Code schreiben sondern machen oder fixen
