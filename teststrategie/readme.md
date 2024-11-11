@@ -28,4 +28,5 @@
 |     4      | Zusätzliche Optionen                      | Benutzer kann zusäztliche Optionen wählen         | Benuter kann die Optionen aussuchen       | true           | -   |
 |     5      | Zahlungsmethode                        | Benutzer kann mit einer sicheren Zahlungsmethode bezahlen        | Zahlungsmethoden sind sicher        | true         | -       |
 
+### Aufgabe 3
 
