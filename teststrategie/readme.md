@@ -16,3 +16,6 @@
 | Testfall 5 | 24'999           | 7% Rabatt         |
 | Testfall 6 | 25'000           | 8.5% Rabatt       |
 | Testfall 7 | 30'000           | 8.5% Rabatt       |
+
+### Aufgabe 2
+
