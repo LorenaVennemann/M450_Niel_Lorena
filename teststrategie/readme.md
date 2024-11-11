@@ -29,14 +29,24 @@
 |     5      | Zahlungsmethode                        | Benutzer kann mit einer sicheren Zahlungsmethode bezahlen        | Zahlungsmethoden sind sicher        | true         | -       |
 
 ### Aufgabe 3
+
 ## Black-Box Testfälle
-Geld abheben  
-Geld einzahlen  
-Konto erstellen  
-Konto löschen  
-## Geignete Functionne für White Test Fälle
-Theoretisch sind für alle functionen White Test Fälle, mithilfe von Mock Daten. Jedoch haben viele Functionen in diesem Code grosse Abhänigkeiten mit anderen functionen oder classen.  
-Klassen mit eher weniger abhänigkeiten: 
-printAccountsList()  
-deleteAccount()
-createAccount()
+
+| Testfall          | Beschreibung       |
+|-------------------|--------------------|
+| Geld abheben      |                    |
+| Geld einzahlen    |                    |
+| Konto erstellen   |                    |
+| Konto löschen     |                    |
+
+## Geeignete Funktionen für White Test Fälle
+
+Theoretisch sind für alle Funktionen White Test Fälle, mithilfe von Mock-Daten, möglich. Jedoch haben viele Funktionen in diesem Code große Abhängigkeiten mit anderen Funktionen oder Klassen.  
+
+Klassen mit eher weniger Abhängigkeiten:
+
+| Klasse            | Beschreibung       |
+|-------------------|--------------------|
+| printAccountsList |                    |
+| deleteAccount     |                    |
+| createAccount     |                    |
