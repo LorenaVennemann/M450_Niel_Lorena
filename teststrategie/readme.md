@@ -17,13 +17,16 @@
 | Testfall 6 | 25'000           | 8.5% Rabatt       |
 | Testfall 7 | 30'000           | 8.5% Rabatt       |
 
+### Aufgabe 2
+### Wichtige Testfälle für die Autovermietungsplattform 
 
-
-
-
-
-
-
+| ID         | Beschreibung                  | Erwartetes_Result | Effektives_Resultat| Status           | Mögliche Ursache  |
+|------------|-------------------------------|-------------------   |--------------------|------------------|------------------ |
+|     1      | Benutzer kann Fahrzeug suchen | Benutzer kann Fahrzeuge nach Marke, Modell und Preis filtern.      |  Benutzer kann Fahrzeuge nach Modell und Preis filtern, jedoch nicht nach Marke.          | false           | Filter wurde nicht gefunden       |
+|     2      | Benutzer kann die Webseite aufrufen                      | Benutzer kann die geladene Webseite besichtigen         | Bentuzer sieht die Webseite      | true          | -      |
+|     3      | Benutzer kann Fahrzeug wählen                      | Benutzer kann zwischen mehreren Fahrzeugen aussuchen.         | Bentuzer kann zwischen verschiedenen Autos aussuchen         | true         | -     |
+|     4      | Zusätzliche Optionen                      | Benutzer kann zusäztliche Optionen wählen         | Benuter kann die Optionen aussuchen       | true           | -   |
+|     5      | Zahlungsmethode                        | Benutzer kann mit einer sicheren Zahlungsmethode bezahlen        | Zahlungsmethoden sind sicher        | true         | -       |
 
 ### Aufgabe 3
 ## Black-Box Testfälle
