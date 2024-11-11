@@ -7,15 +7,15 @@
 | Testfall 3 | 20'000 ≤ Preis < 25'000     | 7% Rabatt         |
 | Testfall 4 | ≥ 25'000                    | 8.5% Rabatt       |
 
-| Testfall   | Kaufpreis (CHF) | Erwarteter Rabatt |
-|------------|------------------|-------------------|
-| Testfall 1 | 14'999           | Kein Rabatt       |
-| Testfall 2 | 15'000           | 5% Rabatt         |
-| Testfall 3 | 19'999           | 5% Rabatt         |
-| Testfall 4 | 20'000           | 7% Rabatt         |
-| Testfall 5 | 24'999           | 7% Rabatt         |
-| Testfall 6 | 25'000           | 8.5% Rabatt       |
-| Testfall 7 | 30'000           | 8.5% Rabatt       |
+| Testfall   | Kaufpreis (CHF) | Endpreis (CHF) |
+|------------|------------------|----------------|
+| Testfall 1 | 14'999           | 14'999         |
+| Testfall 2 | 15'000           | 14'250         |
+| Testfall 3 | 19'999           | 18'999.05      |
+| Testfall 4 | 20'000           | 18'600         |
+| Testfall 5 | 24'999           | 23'249.07      |
+| Testfall 6 | 25'000           | 22'875         |
+| Testfall 7 | 30'000           | 27'450         |
 
 ### Aufgabe 2
 ### Wichtige Testfälle für die Autovermietungsplattform 
