@@ -1,38 +1,40 @@
-Aufgabe 1
-Unit-Tests:
+## Aufgabe 1
+### Unit-Tests:
 
-Beschreibung: Testen einzelne Komponenten oder Module eines Programms.
+Beschreibung: Testen einzelne Komponenten oder Module eines Programms.  
 
 Durchführung: In der Regel automatisiert mit Testframeworks wie JUnit für Java. Jeder Test prüft eine Funktion oder Methode auf erwartetes Verhalten.
 
-Integrationstests:
+### Integrationstests:
 
-Beschreibung: Testen das Zusammenspiel mehrerer Komponenten oder Systeme.
+Beschreibung: Testen das Zusammenspiel mehrerer Komponenten oder Systeme.  
 
 Durchführung: Kombination verschiedener Module wird getestet, um sicherzustellen, dass sie zusammenarbeiten. Tools wie Selenium können hier verwendet werden.
 
-End-to-End-Tests (E2E):
+### End-to-End-Tests (E2E):
 
-Beschreibung: Testen das gesamte System, vom Anfang bis zum Ende, in einer realistischen Umgebung.
+Beschreibung: Testen das gesamte System, vom Anfang bis zum Ende, in einer realistischen Umgebung.  
 
 Durchführung: Simulieren reale Benutzeraktionen, um sicherzustellen, dass das gesamte System wie erwartet funktioniert. Tools wie Cypress oder Puppeteer werden häufig eingesetzt.
 
-Aufgabe 2: 
-Beispiel eines Software-Fehlers:
+## Aufgabe 2: 
+### Beispiel eines Software-Fehlers:
 
 Beschreibung: Ein Software-Fehler tritt auf, wenn das Programm nicht wie erwartet funktioniert. Zum Beispiel könnte eine Funktion in einer Banking-App falsche Kontostände anzeigen.
 
 Hoher Schaden: Ein solcher Fehler könnte zu finanziellen Verlusten und Vertrauensverlust bei Kunden führen.
 
-Beispiel eines Software-Mangels:
+### Beispiel eines Software-Mangels:
 
 Beschreibung: Ein Software-Mangel bezieht sich auf Anforderungen, die nicht erfüllt werden. Zum Beispiel könnte eine App wichtige Sicherheitsfunktionen missen.
 
 Hoher Schaden: Ein Sicherheitsmangel könnte zu Datenlecks und schweren Datenschutzverletzungen führen.
 
-Aufgabe 3:
-Beispielcode:
+## Aufgabe 3:
+### Beispielcode:
 java
+
+```java
 public class PriceCalculation {
     public double calculatePrice(double baseprice, double specialprice, double extraprice, int extras, double discount) {
         double addon_discount;
@@ -77,6 +79,7 @@ public class PriceCalculationTest {
         }
     }
 }
+```
 
-Bonus: 
+### Bonus:   
 Der Fehler im ursprünglichen Code liegt in der Bedingung für den addon_discount. Das richtige if-else-Konstrukt sollte prüfen, ob extras >= 5 zuerst und dann extras >= 3. Zudem soll der Händlerrabatt nicht überschrieben werden.
