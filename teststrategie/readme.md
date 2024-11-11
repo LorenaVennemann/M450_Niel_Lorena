@@ -16,3 +16,24 @@
 | Testfall 5 | 24'999           | 7% Rabatt         |
 | Testfall 6 | 25'000           | 8.5% Rabatt       |
 | Testfall 7 | 30'000           | 8.5% Rabatt       |
+
+
+
+
+
+
+
+
+
+### Aufgabe 3
+## Black-Box Testfälle
+Geld abheben  
+Geld einzahlen  
+Konto erstellen  
+Konto löschen  
+## Geignete Functionne für White Test Fälle
+Theoretisch sind für alle functionen White Test Fälle, mithilfe von Mock Daten. Jedoch haben viele Functionen in diesem Code grosse Abhänigkeiten mit anderen functionen oder classen.  
+Klassen mit eher weniger abhänigkeiten: 
+printAccountsList()  
+deleteAccount()
+createAccount()
