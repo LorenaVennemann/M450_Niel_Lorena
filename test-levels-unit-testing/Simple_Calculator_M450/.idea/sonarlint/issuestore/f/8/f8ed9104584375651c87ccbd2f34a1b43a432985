@@ -1,0 +1,15 @@
+
+s
+java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(ãø©Æþÿÿÿÿ8³Ž¸ñ³2
+s
+java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(Š‘…ûýÿÿÿÿ8´Ž¸ñ³2
+D
+java:S1659""Declare "num2" on a separate line.(¹¥·êüÿÿÿÿ8¼Ž¸ñ³2
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Êç†¯øÿÿÿÿ8ÌŽ¸ñ³2
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ŸÒÎÃ8ÐŽ¸ñ³2
+Z	java:S1063"9Replace this use of System.out or System.err by a logger.(ÀÊøþÿÿÿÿÿ8×Ž¸ñ³2
+Z	java:S1066"9Replace this use of System.out or System.err by a logger.(¸ˆ€éüÿÿÿÿ8ÙŽ¸ñ³2
+Z	java:S1067"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ÚŽ¸ñ³2
+U	java:S106:"9Replace this use of System.out or System.err by a logger.(Ý·³ó8ÛŽ¸ñ³2
+@
+java:S1128"$Remove this unused import 'java.io'.(¬›ãD8•Ø¸ñ³2
