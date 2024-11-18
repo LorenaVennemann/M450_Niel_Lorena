@@ -5,7 +5,7 @@ package ch.tbz.bank.software;
 
 We want to simulate a bank account and allow the user to pay in money, withdraw money and also check the balance.
 Create a class “Account” which has information about the user, currency and balance.
-Add methods so you can add money and take money from your account. Include a method which shows how much money you have.
+Add methods so you can fadd money and take money from your account. Include a method which shows how much money you have.
 
 Extension: make the bank interactive
 We want the user to interact with the bank. He should be able to use a small menu where he can add amount,
