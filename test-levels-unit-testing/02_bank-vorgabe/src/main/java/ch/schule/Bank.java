@@ -72,7 +72,6 @@ public class Bank
 			return null;
 		}
         String id = "P-" + nextAccountId;
-
 		++nextAccountId;
 		accounts.put(id,new SalaryAccount(id, creditLimit));
 
@@ -118,6 +117,10 @@ public class Bank
 			return 0;
 
 		return a.getBalance();
+	}
+
+	public Account getAccount(String id) {
+		return  (Account) accounts.get(id);
 	}
 
 	/**

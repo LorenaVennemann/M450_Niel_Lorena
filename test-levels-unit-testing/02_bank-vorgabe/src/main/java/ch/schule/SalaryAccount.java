@@ -3,7 +3,7 @@ package ch.schule;
 /**
  * Lohnkonto.
  *
-* @author Roger H. J&ouml;rg
+* @author Roger H. J&ouml;rg  
 * @version 1.0
  */
 public class SalaryAccount extends Account

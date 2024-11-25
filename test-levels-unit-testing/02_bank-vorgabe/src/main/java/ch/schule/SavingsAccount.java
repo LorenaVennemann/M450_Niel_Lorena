@@ -6,7 +6,7 @@ package ch.schule;
  * @author Roger H. J&ouml;rg
  * @version 1.0
  */
-public class SavingsAccount extends Account
+	public class SavingsAccount extends Account
 {
 	/**
 	 * Initialisiert ein Sparkonto
