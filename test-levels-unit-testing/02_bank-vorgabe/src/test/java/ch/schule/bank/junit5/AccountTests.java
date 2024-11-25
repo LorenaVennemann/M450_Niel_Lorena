@@ -6,15 +6,11 @@ import ch.schule.SalaryAccount;
 import ch.schule.SavingsAccount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import java.util.TreeMap;
-
 import static org.junit.jupiter.api.Assertions.*;
-
 
 /**
  * Tests für die Klasse Account.
@@ -33,6 +29,7 @@ public class AccountTests {
     @BeforeEach
     public void setUp() { // Code zur Initialisierung der Datenbankverbindung
         bank = new Bank();
+        bank.createSalaryAccount(-1000); // Konto erstellen
         bank.setAccount(bank.getAccount("P-1000"));
     }
 
@@ -64,7 +61,7 @@ public class AccountTests {
      */
     @Test
     public void testReferences() {
-
+        // Hier könnte ein Test für Referenzen hinzugefügt werden
     }
 
     /**
@@ -93,18 +90,16 @@ public class AccountTests {
         try {
             bank.withdraw("P-1000", 25122008, 100);
             bank.getAccount("P-1000").print();
-
             String expectedOutput = "Kontoauszug 'P-1000'\n" +
                     "Datum          Betrag      Saldo\n" +
                     "09.05.71753      -0.00      -0.00";
-
             String actualOutput = outContent.toString().replace("\r\n", "\n").trim();
             assertEquals(expectedOutput, actualOutput);
-        } finally {
+        }
+        finally {
             System.setOut(originalOut);
         }
     }
-
 
     /**
      * Experimente mit print(year,month).
@@ -120,7 +115,7 @@ public class AccountTests {
             bank.getAccount("P-1000").print(2024, 10);
 
             String expectedOutput = "Kontoauszug 'P-1000' Monat: 10.2024\n"+
-            "Datum          Betrag      Saldo";
+                    "Datum          Betrag      Saldo";
 
             String actualOutput = outContent.toString().replace("\r\n", "\n").trim();
             assertEquals(expectedOutput, actualOutput);
@@ -128,5 +123,4 @@ public class AccountTests {
             System.setOut(originalOut);
         }
     }
-
 }

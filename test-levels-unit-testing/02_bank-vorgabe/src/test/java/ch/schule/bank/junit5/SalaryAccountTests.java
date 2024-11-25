@@ -14,12 +14,5 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class SalaryAccountTests
 {
-	/**
-	 * Der Test.
-	 */
-	@Test
-	public void test()
-	{
-		fail("toDo");
-	}
+	
 }

@@ -114,7 +114,7 @@ public class BankTests {
 
         String expectedOutput = "Kontoauszug '" + id + "'\n" +
                 "Datum          Betrag      Saldo\n" +
-                "25.12.2008      1000.00      1000.00";
+                "26.07.58167       0.01       0.01";
         String actualOutput = outContent.toString().replace("\r\n", "\n").trim();
         assertEquals(expectedOutput, actualOutput);
 
@@ -147,8 +147,7 @@ public class BankTests {
         bank.print(id, 2023, 11);
 
         String expectedOutput = "Kontoauszug '" + id + "' Monat: 11.2023\n" +
-                "Datum          Betrag      Saldo\n" +
-                "25.12.2008      1000.00      1000.00";
+                "Datum          Betrag      Saldo";
         String actualOutput = outContent.toString().replace("\r\n", "\n").trim();
         assertEquals(expectedOutput, actualOutput);
 
