@@ -23,11 +23,11 @@ public class AddressService {
         return addressRepository.save(address);
     }
     public List<Address> getAll() {
-        return Arrays.asList(
+         Arrays.asList(
             new Address(1, "John", "Doe", "123456789", new Date()),
             new Address(2, "Jane", "Smith", "987654321", new Date())
         );
-        //return addressRepository.findAll().stream().sorted(new AddressComparator()).toList();
+        return addressRepository.findAll().stream().sorted(new AddressComparator()).toList();
     }
 
     public Optional<Address> getAddress(int id) {

@@ -11,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,18 +41,12 @@ class AddressServiceTest {
     verify(addressRepository, times(1)).save(address);
   }
 
-  @Test
-  void testGetAllAddresses() {
+  @Test void testGetAllAddresses() {
     Address a1 = new Address(1, "John", "Doe", "12345", new Date());
     Address a2 = new Address(2, "Jane", "Smith", "67890", new Date());
-
     when(addressRepository.findAll()).thenReturn(Arrays.asList(a1, a2));
-
-    var addresses = addressService.getAll();
-
-    assertEquals(2, addresses.size());
-    verify(addressRepository, times(1)).findAll();
-  }
+    List<Address> addresses = addressService.getAll(); assertEquals(2, addresses.size());
+    verify(addressRepository, times(1)).findAll(); }
 
   @Test
   void testGetAddressById() {
