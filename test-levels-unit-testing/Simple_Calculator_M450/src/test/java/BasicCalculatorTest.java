@@ -1,76 +1,50 @@
 
 import org.example.BasicCalculator;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BasicCalculatorTest {
 
   @Test
   public void testAddition() {
-    String input = "5\n3\n+\n";
-    InputStream in = new ByteArrayInputStream(input.getBytes());
-    System.setIn(in);
-
-    // Call the main method
-    BasicCalculator.main(new String[0]);
-
-    // Verify output
-    assertTrue(true); // You can manually verify the result
+    double result = BasicCalculator.add(5,3);
+    assertEquals(8.0, result);
   }
 
   @Test
   public void testSubtraction() {
-    String input = "5\n3\n-\n";
-    InputStream in = new ByteArrayInputStream(input.getBytes());
-    System.setIn(in);
+    double result = BasicCalculator.subtract(5,3);
 
-    // Call the main method
-    BasicCalculator.main(new String[0]);
-
-    // Verify output
-    assertTrue(true); // You can manually verify the result
+    //    assertEquals(, result);
   }
 
   @Test
   public void testMultiplication() {
-    String input = "5\n3\n*\n";
-    InputStream in = new ByteArrayInputStream(input.getBytes());
-    System.setIn(in);
-
-    // Call the main method
-    BasicCalculator.main(new String[0]);
-
-    // Verify output
-    assertTrue(true); // You can manually verify the result
+    double result = BasicCalculator.multiply(12,5);
+    assertEquals(60.0, result);
   }
 
   @Test
   public void testDivision() {
-    String input = "6\n3\n/\n";
-    InputStream in = new ByteArrayInputStream(input.getBytes());
-    System.setIn(in);
-
-    // Call the main method
-    BasicCalculator.main(new String[0]);
-
-    // Verify output
-    assertTrue(true); // You can manually verify the result
+    double result = BasicCalculator.divide(10,2);
+    assertEquals(5.0, result);
   }
 
   @Test
   public void testDivisionByZero() {
-    String input = "6\n0\n/\n";
-    InputStream in = new ByteArrayInputStream(input.getBytes());
-    System.setIn(in);
-
-    // Call the main method
-    BasicCalculator.main(new String[0]);
-
-    // Verify output
-    assertTrue(true); // You can manually verify the result
+    Assertions.assertThrows(ArithmeticException.class, ()->{
+      BasicCalculator.divide(100,0);
+    });
   }
+  @Test
+  public void testFindIndexesNoDuplicates() {
+    ArrayList<Integer> nums = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+    ArrayList<Integer> expected = new ArrayList<>();
+    assertEquals(expected, BasicCalculator.findIndexes(nums, 2)); }
 }

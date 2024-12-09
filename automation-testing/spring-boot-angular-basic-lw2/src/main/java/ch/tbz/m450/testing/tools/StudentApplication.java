@@ -25,7 +25,7 @@ public class StudentApplication {
 				Student user = new Student(name, name.toLowerCase() + "@tbz.ch");
 				studentRepository.save(user);
 			});
-			studentRepository.findAll().forEach(s -> log.info(s.toString()));
+			studentRepository.findAll().forEach(s -> System.out.println(s.toString()));
 		};
 	}
 

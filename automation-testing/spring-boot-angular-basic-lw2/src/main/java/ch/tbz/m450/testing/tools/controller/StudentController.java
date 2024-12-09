@@ -25,5 +25,4 @@ public class StudentController {
     void addStudent(@RequestBody Student user) {
         studentRepository.save(user);
     }
-
 }
