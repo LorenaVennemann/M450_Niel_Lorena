@@ -33,3 +33,10 @@ jobs:
         with:
           name: test-reports
           path: target/surefire-reports/
+
+      - name: Upload build logs
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-logs
+          path: target/build.log
