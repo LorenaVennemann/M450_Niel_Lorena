@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04  # Ändere von ubuntu-latest auf ubuntu-24.04, um zukünftige Probleme zu vermeiden
+    runs-on: ubuntu-24.04  
 
     steps:
       - name: Checkout code
@@ -28,7 +28,7 @@ jobs:
         run: mvn test
 
       - name: Upload test reports as artifacts
-        uses: actions/upload-artifact@v3  # Verwendet die neueste Version v3
+        uses: actions/upload-artifact@4
         with:
           name: test-reports
           path: target/surefire-reports/
