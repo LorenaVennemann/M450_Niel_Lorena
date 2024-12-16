@@ -33,11 +33,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-reports
-          path: target/surefire-reports/
-
-      - name: Upload build logs
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-logs
-          path: target/*.log
+          path: target/surefire-reports/TEST-ch.tbz.recipe.planner.controller.RecipeControllerTest.xml
