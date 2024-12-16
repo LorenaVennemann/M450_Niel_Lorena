@@ -28,7 +28,7 @@ public class RecipePlannerApplication {
 					"https://www.kitchensanctuary.com/wp-content/uploads/2020/04/Chicken-Fried-Rice-square-FS-.jpg",
 					"https://www.deliciousmagazine.co.uk/wp-content/uploads/2020/01/lasagne.jpg",
 					"https://recipeimages.migros.ch/crop/v-w-1200-h-630-a-center_center/ac38873942ada8c8154f0da0a748adf486a304d8/pommes-frites-0-16-9.jpg"
-					);
+			);
 	public static void main(String[] args) {
 		SpringApplication.run(RecipePlannerApplication.class, args);
 	}
