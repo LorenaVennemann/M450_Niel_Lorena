@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04  # Verwende ubuntu-24.04 als Laufzeitumgebung
+    runs-on: ubuntu-24.04  
 
     steps:
       - name: Checkout code
@@ -29,14 +29,15 @@ jobs:
         run: mvn test
 
       - name: Upload test reports as artifacts
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-reports
           path: target/surefire-reports/
 
       - name: Upload build logs
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: build-logs
-          path: target/build.log
+          path: target/*.log
