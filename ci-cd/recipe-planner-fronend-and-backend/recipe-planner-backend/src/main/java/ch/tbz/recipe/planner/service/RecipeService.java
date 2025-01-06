@@ -12,9 +12,8 @@ import java.util.UUID;
 @Service
 public class RecipeService {
 
-    RecipeEntityMapper mapper;
-
-    RecipeRepository repository;
+    private final RecipeEntityMapper mapper;
+    private final RecipeRepository repository;
 
     public RecipeService(RecipeEntityMapper mapper, RecipeRepository repository) {
         this.mapper = mapper;
@@ -22,8 +21,8 @@ public class RecipeService {
     }
 
     public List<Recipe> getRecipes() {
-        List<RecipeEntity> recipesEntities = repository.findAll();
-        return recipesEntities.stream().map(mapper::entityToDomain).toList();
+        List<RecipeEntity> recipeEntities = repository.findAll();
+        return recipeEntities.stream().map(mapper::entityToDomain).toList();
     }
 
     public Recipe getRecipeById(UUID recipeId) {
@@ -31,7 +30,22 @@ public class RecipeService {
     }
 
     public Recipe addRecipe(Recipe recipe) {
-        var createdRecipe = repository.save(mapper.domainToEntity(recipe));
+        RecipeEntity createdRecipe = repository.save(mapper.domainToEntity(recipe));
         return mapper.entityToDomain(createdRecipe);
+    }
+
+    public Recipe updateRecipe(UUID recipeId, Recipe recipe) {
+        RecipeEntity existingRecipeEntity = repository.findById(recipeId).orElse(null);
+        if (existingRecipeEntity == null) {
+            return null; // Recipe not found
+        }
+        // Updates
+        existingRecipeEntity.setName(recipe.getName());
+        existingRecipeEntity.setDescription(recipe.getDescription());
+        existingRecipeEntity.setImageUrl(recipe.getImageUrl());
+
+        // Speichern des aktualisierten Rezeptes
+        RecipeEntity updatedRecipeEntity = repository.save(existingRecipeEntity);
+        return mapper.entityToDomain(updatedRecipeEntity); // Rückgabe des aktualisierten Rezeptes
     }
 }
