@@ -5,6 +5,9 @@ import ch.tbz.recipe.planner.mapper.RecipeEntityMapper;
 import ch.tbz.recipe.planner.repository.RecipeRepository;
 import ch.tbz.recipe.planner.domain.Recipe;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.UUID;
@@ -32,6 +35,14 @@ public class RecipeService {
 
     public Recipe addRecipe(Recipe recipe) {
         var createdRecipe = repository.save(mapper.domainToEntity(recipe));
+        return mapper.entityToDomain(createdRecipe);
+    }
+
+    @PutMapping("/recipes/{id}")
+    public Recipe updateRecipe(@PathVariable Long id, @RequestBody Recipe updatedRecipe) {
+        RecipeEntity recipe = repository.findById(id).get();
+        repository.delete(recipe);
+        var createdRecipe = repository.save(mapper.domainToEntity(updatedRecipe));
         return mapper.entityToDomain(createdRecipe);
     }
 }
