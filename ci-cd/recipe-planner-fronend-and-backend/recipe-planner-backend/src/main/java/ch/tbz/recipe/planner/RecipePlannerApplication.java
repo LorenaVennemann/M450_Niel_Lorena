@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 @Slf4j
-public class RecipePlannerApplication {
+public class 	RecipePlannerApplication {
 
 	private final static String DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 	private final static List<String> IMAGES =

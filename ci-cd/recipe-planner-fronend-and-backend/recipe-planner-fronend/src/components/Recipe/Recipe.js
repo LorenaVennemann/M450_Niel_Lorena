@@ -8,7 +8,10 @@ function Recipe(props) {
         <Card.Body>
             <Card.Title>{props.title}</Card.Title>
             {props.description}
-            <Button variant="primary">Edit Details</Button>
+            <Button onClick={() => {
+                localStorage.setItem("id", props.id)
+                window.location.href = `/edit`
+                }} variant="primary">Edit Details</Button>
         </Card.Body>
     </Card>
     )

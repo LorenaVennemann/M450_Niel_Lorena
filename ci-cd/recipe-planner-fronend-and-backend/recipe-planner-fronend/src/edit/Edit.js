@@ -1,22 +1,51 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddRecipe.css';
-import {Form, Button, Col, Row} from 'react-bootstrap';
+import { Form, Button, Col, Row } from 'react-bootstrap';
+import axios from "axios";
 
-import AddIngredient from "../AddIngredient/AddIngredient";
+import AddIngredient from "../components/AddIngredient/AddIngredient";
 
 const baseURL = "http://localhost:8080/api/recipes";
 
 function AddRecipe() {
-    const [ ingredients, setIngredients ] = useState([])
+    const [ingredients, setIngredients] = useState([]);
     const [formData, setFormData] = useState({
         "name": '',
         "description": '',
         "imageUrl": '',
         "ingredients": [],
         "id": null
-    })
+    });
+    const [loading, setLoading] = useState(true);
+    const [listId, setListId] = useState(1);
 
-    const [listId, setListId] = useState(1)
+    const id  = localStorage.getItem("id") 
+
+    useEffect(() => {
+        const fetchRecipe = async () => {
+            try {
+                const response = await axios.get(`${baseURL}/recipe/${id}`);
+                setFormData({
+                    "name": response.data.name,
+                    "description": response.data.description,
+                    "imageUrl": response.data.imageUrl,
+                    "ingredients": response.data.ingredients || [],
+                    "id": response.data.id
+                });
+                console.log(response.data)
+                setIngredients(response.data,ingredients || [])
+
+                setLoading(false); // Setze den Ladezustand auf false, wenn die Daten geladen sind
+            } catch (error) {
+                console.error('Error fetching recipe:', error);
+                setLoading(false); // Setze den Ladezustand auf false, auch im Fehlerfall
+            }
+        };
+
+        if (id) {
+            fetchRecipe();
+        }
+    }, [id]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -50,48 +79,65 @@ function AddRecipe() {
     };
 
     const addIngredient = () => {
-
         setFormData(({...formData, ingredients: [
-                ...formData.ingredients, {
-                    listId: listId,
-                    ingredient: '',
-                    unit: 'PIECE',
-                    quantity: ''
-                }
-            ]}))
-        setListId(listId + 1)
+            ...formData.ingredients, {
+                listId: listId,
+                ingredient: '',
+                unit: 'PIECE',
+                quantity: ''
+            }
+        ]}));
+        setListId(listId + 1);
+    };
 
-    }
-        
     const updateIngredient = (ingredientObj) => {
         const updatedIngredients = formData.ingredients.map((ingredient) => {
             if (ingredient.listId === ingredientObj.listId) {
-                return ingredientObj
+                return ingredientObj;
             }
-            return ingredient
-        })
-        setFormData({...formData, ingredients: updatedIngredients})
-    }
+            return ingredient;
+        });
+        setFormData({...formData, ingredients: updatedIngredients});
+    };
 
     const removeIngredient = (ingredientObj) => {
-        const updatedIngredients = formData.ingredients.filter((ingredient) => ingredient.listId !== ingredientObj.listId)
-        setFormData({...formData, ingredients: updatedIngredients})
-    }
+        const updatedIngredients = formData.ingredients.filter((ingredient) => ingredient.listId !== ingredientObj.listId);
+        setFormData({...formData, ingredients: updatedIngredients});
+    };
 
-    const renderIngredients = formData.ingredients.map(ingredient => <AddIngredient
-        key={ingredient.listId}
-        ingredient={ingredient}
-        ingredients={ingredients}
-        listId={listId - 1}
-        updateIngredient={updateIngredient}
-        removeIngredient={removeIngredient}
-    />)
+    useEffect(() => {
+        renderIngredients = formData.ingredients.map((ingredient) => (
+            <AddIngredient
+                key={ingredient.listId}
+                ingredient={ingredient}
+                ingredients={ingredients}
+                listId={listId - 1}
+                updateIngredient={updateIngredient}
+                removeIngredient={removeIngredient}
+            />
+        ));    
+    },[setLoading])
+
+    let renderIngredients = formData.ingredients.map((ingredient) => (
+        <AddIngredient
+            key={ingredient.listId}
+            ingredient={ingredient}
+            ingredients={ingredients}
+            listId={listId - 1}
+            updateIngredient={updateIngredient}
+            removeIngredient={removeIngredient}
+        />
+    ));
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <>
         <div className="bg">
             <div className="m-3">
-                <h1 className="h3 bg-dark text-bg-primary mt-2">Add Recipe</h1>
+                <h1 className="h3 bg-dark text-bg-primary mt-2">Edit Recipe</h1>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-1" controlId="formBasicName">
                         <Form.Label>Recipe Name:</Form.Label>
@@ -151,7 +197,7 @@ function AddRecipe() {
             </div>
         </div>
         </>
-    )
+    );
 }
 
 export default AddRecipe;

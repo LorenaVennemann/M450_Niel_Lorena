@@ -6,7 +6,7 @@ import {Col, Row} from "react-bootstrap";
 
 const baseURL = "http://localhost:8080/api/recipes";
 
-
+    
 const Browse = () => {
 
         const [post, setPost] = React.useState(null);
@@ -24,7 +24,7 @@ const Browse = () => {
                 <Row>
                     {post.map((d) => (
                         <Col sm={12} md={6} lg={4} xl={3}>
-                            <Recipe title={d.name} description={d.description} image={d.imageUrl} />
+                            <Recipe id={d.id} title={d.name} description={d.description} image={d.imageUrl} />
                         </Col>
                     ))}
                 </Row>

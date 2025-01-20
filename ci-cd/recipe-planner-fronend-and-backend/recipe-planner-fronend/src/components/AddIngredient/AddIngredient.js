@@ -5,27 +5,40 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 
 const AddIngredient = ({ingredients, ingredient, updateIngredient, removeIngredient}) => {
 
+    console.log(ingredient);
+
     return (
         <Row>
             <Col>
                 <Form.Group className="mb-1" controlId="formBasicName">
-                    <Form.Control placeholder="Name"/>
+                    <Form.Control
+                        placeholder="Name"
+                        value={ingredient.name}
+                        onChange={(e) => updateIngredient({...ingredient, name: e.target.value})}
+                    />
                 </Form.Group>
             </Col>
             <Col>
                 <Form.Group className="mb-1" controlId="formBasicUnit">
-                    <Form.Select>
-                        <option>PIECE</option>
-                        <option>GRAMM</option>
-                        <option>KILOGRAMM</option>
-                        <option>LITRE</option>
-                        <option>DECILITRE</option>
+                    <Form.Select
+                        value={ingredient.unit}
+                        onChange={(e) => updateIngredient({...ingredient, unit: e.target.value})}
+                    >
+                        <option value="PIECE">PIECE</option>
+                        <option value="GRAMM">GRAMM</option>
+                        <option value="KILOGRAMM">KILOGRAMM</option>
+                        <option value="LITRE">LITRE</option>
+                        <option value="DECILITRE">DECILITRE</option>
                     </Form.Select>
                 </Form.Group>
             </Col>
             <Col>
                 <Form.Group className="mb-1" controlId="quantity">
-                    <Form.Control placeholder="Quantity"/>
+                    <Form.Control
+                        placeholder="Quantity"
+                        value={ingredient.amount}
+                        onChange={(e) => updateIngredient({...ingredient, amount: e.target.value})}
+                    />
                 </Form.Group>
             </Col>
             <Col xs={1}>
@@ -36,10 +49,15 @@ const AddIngredient = ({ingredients, ingredient, updateIngredient, removeIngredi
                 >x</Button>
             </Col>
         </Row>
-    )
-}
+    );
+};
 
-AddIngredient.propTypes = {};
+AddIngredient.propTypes = {
+    ingredients: PropTypes.array.isRequired,
+    ingredient: PropTypes.object.isRequired,
+    updateIngredient: PropTypes.func.isRequired,
+    removeIngredient: PropTypes.func.isRequired
+};
 
 AddIngredient.defaultProps = {};
 
